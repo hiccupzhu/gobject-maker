@@ -1,19 +1,14 @@
-
-G_CFLAGS = $(shell pkg-config gobject-2.0 --cflags)
-G_LIBS = $(shell pkg-config gobject-2.0 --libs)
-
-CFLAGS = -ansi -pedantic -O2 -Wall $(G_CFLAGS)
-LFLAGS = $(G_LIBS)
-
 CC = gcc
-RM = rm
+CC_OPTS = $(shell pkg-config --cflags gobject-2.0)
+CC_OPTS += -std=c99 -g
+LD_OPTS = $(shell pkg-config --libs gobject-2.0)
 
-all: <prefix_lower_case>_<typename_lower_case>.o
+tscheck:tscheck.o avreader.o
+	$(CC) -o $@ $+ $(LD_OPTS)
 
-# Compile and Assemble C Source Files into Object Files
-%.o: %.c %.h
-	$(CC) -c $(CFLAGS) $*.c
-
-clean: 
-	$(RM) <prefix_lower_case>_<typename_lower_case>.o
+%.o:%.c
+	$(CC) $(CC_OPTS) -c -o $@ $<
+ 
+clean:
+	rm -rf *.o tscheck
 
