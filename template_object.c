@@ -5,11 +5,13 @@
 #include <glib-object.h>
 
 #include "<prefix_lower_case>_<typename_lower_case>.h"
-#include "<prefix_lower_case>_<typename_lower_case>_private.h"
 
-#define <prefix_upper_case>_<typename_upper_case>_GET_PRIVATE(obj) \
-  (G_TYPE_INSTANCE_GET_PRIVATE ((obj), <prefix_upper_case>_TYPE_<typename_upper_case>, \
-                                <prefix_capitalized><typename_capitalized>Private)) 
+struct _<prefix_capitalized><typename_capitalized>Private
+{
+
+};
+
+#define <prefix_upper_case>_<typename_upper_case>_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), <prefix_upper_case>_TYPE_<typename_upper_case>, <prefix_capitalized><typename_capitalized>Private))
 
 static void <prefix_lower_case>_<typename_lower_case>_class_init (<prefix_capitalized><typename_capitalized>Class *);
 static void <prefix_lower_case>_<typename_lower_case>_init (<prefix_capitalized><typename_capitalized> *);

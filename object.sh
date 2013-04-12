@@ -18,16 +18,17 @@ s/<typename_lower_case>/$TYPENAME_LOWER_CASE/g"
 
 REPLACEMENTS="$(tr -s '\n' ';' <<< "$REPLACEMENTS")"
 
-FOLDER="${PREFIX_LOWER_CASE}_${TYPENAME_LOWER_CASE}"
+#FOLDER="${PREFIX_LOWER_CASE}_${TYPENAME_LOWER_CASE}"
+FOLDER=.
 C_FILE="${FOLDER}/${PREFIX_LOWER_CASE}_${TYPENAME_LOWER_CASE}.c"
 H_FILE="${FOLDER}/${PREFIX_LOWER_CASE}_${TYPENAME_LOWER_CASE}.h"
-P_FILE="${FOLDER}/${PREFIX_LOWER_CASE}_${TYPENAME_LOWER_CASE}_private.h"
+#P_FILE="${FOLDER}/${PREFIX_LOWER_CASE}_${TYPENAME_LOWER_CASE}_private.h"
 
-mkdir $FOLDER
+#mkdir $FOLDER
 
 sed -e $REPLACEMENTS template_object.c > $C_FILE
 sed -e $REPLACEMENTS template_object.h > $H_FILE
-sed -e $REPLACEMENTS template_object_private.h > $P_FILE
+#sed -e $REPLACEMENTS template_object_private.h > $P_FILE
 sed -e $REPLACEMENTS template_makefile > "${FOLDER}/Makefile"
 
 echo "OBJECT FILES GENERATED!"

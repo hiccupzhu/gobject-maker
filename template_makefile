@@ -11,7 +11,7 @@ RM = rm
 all: <prefix_lower_case>_<typename_lower_case>.o
 
 # Compile and Assemble C Source Files into Object Files
-%.o: %.c %.h %_private.h
+%.o: %.c %.h
 	$(CC) -c $(CFLAGS) $*.c
 
 clean: 

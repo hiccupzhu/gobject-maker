@@ -1,4 +1,6 @@
+gobject-maker
 
-GObject-Template
+./object.sh prefix name
 
-
+e.g.
+> ./object.sh ts reader
