@@ -1,0 +1,9 @@
+*.la
+*.a
+*.lo
+*.o
+*.so
+*.so*
+.*
+!.gitignore
+!*.orc
